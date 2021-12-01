@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(65, 65, 65);
+    overflow-x: hidden;
+}
+
+
+#cont_home{ /*Para o conteúdo de index*/
+    background-color: rgb(185, 182, 182);
+    overflow-y: auto;
+    padding-top: 147px;
+    height: 100vh;
+}
+
+.texto{
+    width: 90%;
+}
+
+#main{ /*para conteúdo de atividades*/
+    background-color: rgb(185, 182, 182);
+    overflow-y: auto;
+    padding-top: 48px;
+    height: 100vh;
+}
+
+.print{
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) 
+{
+    #cont_home{
+        padding-bottom: 48px;
+    }
+
+    #conteudo img{
+        width: 35%;
+    }
+
+    .print{
+        margin-bottom: 48px;
+    }
+}
