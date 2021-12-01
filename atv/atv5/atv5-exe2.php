@@ -51,22 +51,64 @@
                                             <tbody class='table-light border border-dark'>
                                     ";
                                 while($row = mysqli_fetch_assoc($result)) {
-                                    echo "<tr>
-                                            <td>".$row["id"]."</td>
-                                            <td>".$row["nome"]."</td>
-                                            <td>".$row["cpf"]."</td>
-                                            <td>".$row["rg"]."</td>
-                                            <td>".$row["email"]."</td>
-                                            <td>
-                                                <form method='POST'>
-                                                    <div class='d-flex py-1'>
-                                                        <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
-                                                        <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
-                                                    </div>
-                                                </form>
-                                            </td>
-                                         <tr>
-                                    ";
+                                    //começo da estrutura CRUD
+                                    if((isset($_POST['edit'])) || (isset($_POST['remove']))){
+                                        if(isset($_POST['edit'])){
+                                            $edit = $_POST['edit'];
+                                            if($row['id'] == $edit){
+                                                echo "<form method='POST' action='edit-crud.php'>
+                                                        <tr>
+                                                            <td>".$row["id"]."</td>
+                                                            <td><input type='text' class='form-control align-self-center' name='nome' id='nome' required placeholder='".$row['nome']."'></td>
+                                                            <td><input type='text' class='form-control align-self-center' name='cpf' id='cpf' required onkeypress='$(this).mask('000.000.000-00');' placeholder='".$row['cpf']."'</td>
+                                                            <td><input type='text' class='form-control align-self-center' name='rg' id='rg' required onkeypress='$(this).mask('00.000.000-0');' placeholder='".$row['rg']."'></td>
+                                                            <td><input type='email' class='form-control align-self-center' name='email' id='email' required placeholder='".$row['email']."'></td>
+                                                            <td>
+                                                                <div class='d-flex py-1'>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='confirm' value='".$row['id']."'><img src='../img/confirmar.png' alt='Salvar dados'></button>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='cancel' value='false'><img src='../img/cancelar.png' alt='Cancelar'></button>
+                                                                </div>
+                                                            </td>
+                                                        <tr>
+                                                    </form>
+                                                ";
+                                            }else{
+                                                echo "<tr>
+                                                    <td>".$row["id"]."</td>
+                                                    <td>".$row["nome"]."</td>
+                                                    <td>".$row["cpf"]."</td>
+                                                    <td>".$row["rg"]."</td>
+                                                    <td>".$row["email"]."</td>
+                                                    <td>
+                                                        <form method='POST'>
+                                                            <div class='d-flex py-1'>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                <tr>
+                                                ";
+                                            }
+                                        }
+                                    }else{
+                                        echo "<tr>
+                                                <td>".$row["id"]."</td>
+                                                <td>".$row["nome"]."</td>
+                                                <td>".$row["cpf"]."</td>
+                                                <td>".$row["rg"]."</td>
+                                                <td>".$row["email"]."</td>
+                                                <td>
+                                                    <form method='POST'>
+                                                        <div class='d-flex py-1'>
+                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
+                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            <tr>
+                                        ";
+                                    }
                                 }
                                 echo " 
                                             </tbody>
