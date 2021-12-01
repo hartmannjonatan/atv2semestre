@@ -45,6 +45,7 @@
                                                     <th scope='col'>CPF</th>
                                                     <th scope='col'>RG</th>
                                                     <th scope='col'>E-mail</th>
+                                                    <th scope='col'>Ação</th>
                                                 </tr>
                                             </thead>
                                             <tbody class='table-light border border-dark'>
@@ -56,6 +57,14 @@
                                             <td>".$row["cpf"]."</td>
                                             <td>".$row["rg"]."</td>
                                             <td>".$row["email"]."</td>
+                                            <td>
+                                                <form method='POST'>
+                                                    <div class='d-flex py-1'>
+                                                        <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
+                                                        <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                    </div>
+                                                </form>
+                                            </td>
                                          <tr>
                                     ";
                                 }
