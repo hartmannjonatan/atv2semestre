@@ -3,6 +3,14 @@
         echo "<meta http-equiv='refresh' content='0;url=?pagina=atv5-exe3&login=semLog'>";
     }
 ?>
+<style>
+    .icon{
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    }
+    .icon:hover{
+        transform: scale(1.1);
+    }
+</style>
 <div class="container d-flex flex-column align-items-stretch" id="main">
             <div class="row">
                 <div class="col-12 pt-2 bg-dark text-light py-4">
@@ -11,7 +19,7 @@
             </div>
     
             <div class="row bg-dark">
-                    <div class="col-12 bg-dark mb-2 table-responsive">
+                    <div class="col-12 bg-dark table-responsive">
                         <?php
                             ini_set('display_errors', true); //Para não mostrar os erros no lugar do resultado
                             error_reporting(E_ERROR|E_PARSE);
@@ -65,8 +73,8 @@
                                                             <td><input type='email' class='form-control align-self-center' name='email' id='email' required placeholder='".$row['email']."'></td>
                                                             <td>
                                                                 <div class='d-flex py-1'>
-                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='confirm' value='".$row['id']."'><img src='../img/confirmar.png' alt='Salvar dados'></button>
-                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='cancel' value='false'><img src='../img/cancelar.png' alt='Cancelar'></button>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='confirm' value='".$row['id']."'><img class='icon' src='../img/confirmar.png' alt='Salvar dados'></button>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='cancel' value='false'><img class='icon'  src='../img/cancelar.png' alt='Cancelar'></button>
                                                                 </div>
                                                             </td>
                                                         <tr>
@@ -82,14 +90,52 @@
                                                     <td>
                                                         <form method='POST'>
                                                             <div class='d-flex py-1'>
-                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
-                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img class='icon'  src='../img/editar.png' alt='Editar essa linha'></button>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img class='icon'  src='../img/excluir.png' alt='Excluir essa linha'></button>
                                                             </div>
                                                         </form>
                                                     </td>
                                                 <tr>
                                                 ";
                                             }
+                                        }
+
+                                        if(isset($_POST['remove'])){
+                                            $remove = $_POST['remove'];
+                                            if($row['id'] == $remove){
+                                                echo "<form method='POST' action='remove-crud.php'>
+                                                        <tr class='table-danger'>
+                                                            <td>".$row["id"]."</td>
+                                                            <td>".$row["nome"]."</td>
+                                                            <td>".$row["cpf"]."</td>
+                                                            <td>".$row["rg"]."</td>
+                                                            <td>".$row["email"]."</td>
+                                                            <td>
+                                                                <div class='d-flex py-1'>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='confirm' value='".$row['id']."'><img class='icon' src='../img/confirmar.png' alt='Excluir dados'></button>
+                                                                    <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='cancel' value='false'><img class='icon' src='../img/cancelar.png' alt='Cancelar'></button>
+                                                                </div>
+                                                            </td>
+                                                        <tr>
+                                                    </form>
+                                                ";
+                                            }else{
+                                                echo "<tr>
+                                                    <td>".$row["id"]."</td>
+                                                    <td>".$row["nome"]."</td>
+                                                    <td>".$row["cpf"]."</td>
+                                                    <td>".$row["rg"]."</td>
+                                                    <td>".$row["email"]."</td>
+                                                    <td>
+                                                        <form method='POST'>
+                                                            <div class='d-flex py-1'>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img class='icon'  src='../img/editar.png' alt='Editar essa linha'></button>
+                                                                <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img class='icon'  src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                <tr>
+                                                ";}
                                         }
                                     }else{
                                         echo "<tr>
@@ -101,14 +147,13 @@
                                                 <td>
                                                     <form method='POST'>
                                                         <div class='d-flex py-1'>
-                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img src='../img/editar.png' alt='Editar essa linha'></button>
-                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img src='../img/excluir.png' alt='Excluir essa linha'></button>
+                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='edit' value='".$row["id"]."'><img class='icon'  src='../img/editar.png' alt='Editar essa linha'></button>
+                                                            <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='remove' value='".$row["id"]."'><img class='icon'  src='../img/excluir.png' alt='Excluir essa linha'></button>
                                                         </div>
                                                     </form>
                                                 </td>
                                             <tr>
-                                        ";
-                                    }
+                                        ";}
                                 }
                                 echo " 
                                             </tbody>
@@ -122,7 +167,10 @@
                                 };
                         ?>
                     </div>
-                        
+
+                    <div class="col-12 bg-dark mb-4 d-flex justify-content-end">
+                        <a href="?pagina=atv5-exe1"><img src="../img/create.png" style="width: 32px;" alt="Cadastrar novo cliente" class="icon"></a>
+                    </div>    
             </div>
             <div class="row flex-grow-1">
                 <div class="col-12 bg-secondary text-center py-3 print"> <!--Print da questão-->
