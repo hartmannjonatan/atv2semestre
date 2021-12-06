@@ -174,7 +174,16 @@
             </div>
             <div class="row flex-grow-1">
                 <div class="col-12 bg-secondary text-center py-3 print"> <!--Print da questão-->
+                   <h2 class="text-white">Print Geral</h2>
                    <a href="../../img/atv/atv5-exe2.png" target="_blank" rel="noopener noreferrer"><img class="img-fluid rounded" src="../../img/atv/atv5-exe2.png" alt="Print da questão"></a>
+                </div>
+                <div class="col-12 bg-secondary text-center py-3 print"> <!--Print da questão-->
+                   <h2 class="text-white">Print Edit</h2>
+                   <a href="../../img/atv/atv5-edit.PNG" target="_blank" rel="noopener noreferrer"><img class="img-fluid rounded" src="../../img/atv/atv5-edit.PNG" alt="Print da questão"></a>
+                </div>
+                <div class="col-12 bg-secondary text-center py-3 print"> <!--Print da questão-->
+                   <h2 class="text-white">Print Remove</h2>
+                   <a href="../../img/atv/atv5-remove.PNG" target="_blank" rel="noopener noreferrer"><img class="img-fluid rounded" src="../../img/atv/atv5-remove.PNG" alt="Print da questão"></a>
                 </div>
             </div>
         </div>
