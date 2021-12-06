@@ -3,14 +3,6 @@
         echo "<meta http-equiv='refresh' content='0;url=?pagina=atv5-exe3&login=semLog'>";
     }
 ?>
-<style>
-    .icon{
-        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-    }
-    .icon:hover{
-        transform: scale(1.1);
-    }
-</style>
 <div class="container d-flex flex-column align-items-stretch" id="main">
             <div class="row">
                 <div class="col-12 pt-2 bg-dark text-light py-4">
