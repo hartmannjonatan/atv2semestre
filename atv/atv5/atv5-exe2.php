@@ -59,10 +59,10 @@
                                                 echo "<form method='POST' action='edit-crud.php'>
                                                         <tr>
                                                             <td>".$row["id"]."</td>
-                                                            <td><input type='text' class='form-control align-self-center' name='nome' id='nome' required placeholder='".$row['nome']."'></td>
-                                                            <td><input type='text' class='form-control align-self-center' name='cpf' id='cpf' required onkeypress='$(this).mask('000.000.000-00');' placeholder='".$row['cpf']."'</td>
-                                                            <td><input type='text' class='form-control align-self-center' name='rg' id='rg' required onkeypress='$(this).mask('00.000.000-0');' placeholder='".$row['rg']."'></td>
-                                                            <td><input type='email' class='form-control align-self-center' name='email' id='email' required placeholder='".$row['email']."'></td>
+                                                            <td><input type='text' class='form-control align-self-center' name='nome' id='nome' required placeholder='".$row['nome']."' value='".$row['nome']."'></td>
+                                                            <td><input type='text' class='form-control align-self-center' name='cpf' id='cpf' required onkeypress='$(this).mask('000.000.000-00');' placeholder='".$row['cpf']."' value='".$row['cpf']."'</td>
+                                                            <td><input type='text' class='form-control align-self-center' name='rg' id='rg' required onkeypress='$(this).mask('00.000.000-0');' placeholder='".$row['rg']."' value='".$row['rg']."'></td>
+                                                            <td><input type='email' class='form-control align-self-center' name='email' id='email' required placeholder='".$row['email']."' value='".$row['email']."'></td>
                                                             <td>
                                                                 <div class='d-flex py-1'>
                                                                     <button type='submit' class='flex-grow-1 px-1 btn align-self-center' name='confirm' value='".$row['id']."'><img class='icon' src='../img/confirmar.png' alt='Salvar dados'></button>
