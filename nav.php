@@ -88,7 +88,7 @@
                         }
                     </style>
                     <a href="https://github.com/hartmannjonatan/atv2semestre.git" target="_blank" rel="noopener noreferrer">
-                        <img src="img/arquivo-de-codigo.png" alt="Acesse aqui o código fonte" id="icon-link">
+                        <img src="img/logotipo-do-github.png" alt="Acesse aqui o código fonte" id="icon-link">
                     </a>
                 </div>
             </div>
